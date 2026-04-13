@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-architecture
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend architecture: separation of concerns, dependency direction, feature flag lifecycle, error isolation, async work governance, and documentation requirements."
+  license: MIT
+  keywords: [architecture, frontend, feature-flags, dependency-direction, composition, error-boundaries, async]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify frontend architecture decisions. Language and framework agnostic — compose with a framework-specific blueprint.
+    Defines one dependency direction: platform → app shell → routes/pages → features → domain → shared. Covers keeping business rules out of presentational components, adapter isolation for third-party SDKs, runtime config handling, feature flag discipline (owner, expiry, fallback), app-level error isolation, and observable async work.
+    Violations table: 7 ERROR — direct network I/O in UI components, business rules in presentational components, circular module imports, permanent feature flags without expiry, UI-only permission enforcement, browser-only APIs in SSR paths, and shared components importing app-specific modules.
+targets:
+  - AGENTS.md
+  - specforge
