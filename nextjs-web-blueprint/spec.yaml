@@ -1,0 +1,33 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: nextjs-web-blueprint
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for implementing fe-web-* policies in Next.js 16 App Router with TypeScript strict mode: Server/Client Component boundaries, data fetching and caching policy, mutations, routing, middleware constraints, and asset optimization."
+  license: MIT
+  keywords: [nextjs, app-router, server-components, typescript, blueprint, frontend, nextjs16, turbopack]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify a web frontend built with Next.js 16 App Router and TypeScript strict mode. It maps the general fe-web-* harness rules to concrete Next.js implementation requirements.
+    Stack: Next.js 16 App Router, TypeScript strict mode, Turbopack (default bundler). Key rules: Server Components as default for renderable content without client interactivity; mark Client Components explicitly and narrowly; keep secrets in server-only code; define caching/revalidation policy per data source; avoid implicit duplicate fetching across server/client boundaries; keep mutations in approved boundaries (server actions or route handlers); keep middleware minimal, deterministic, and low-latency (redirects, locale, lightweight auth gates only); use Next.js image, font, and metadata features for performance.
+    Violations table: 6 ERROR — browser-only logic in Server Component path, sensitive server capability exposed to Client Components, client component used when server component suffices, implicit cache/revalidation on critical data path, middleware with heavy business logic, and route handlers duplicating backend domain logic.
+
+dependencies:
+  - ref: "pedro-delgallego/react-web-blueprint:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-accessibility:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-architecture:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-browser-platform:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-data-fetching:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-observability:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-performance:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-routing-navigation:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-security:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-state-management:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-testing:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-ui-forms:^0.1.0"
+
+targets:
+  - AGENTS.md
+  - specforge
