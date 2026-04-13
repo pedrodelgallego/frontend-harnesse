@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-accessibility
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for web accessibility: WCAG 2.2 AA compliance, semantic HTML, keyboard navigation, focus management, form labeling, dynamic content announcements, and motion/contrast requirements."
+  license: MIT
+  keywords: [accessibility, wcag, a11y, keyboard, focus, aria, screen-reader, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify accessibility compliance in web frontends. Language and framework agnostic — compose with a framework-specific blueprint such as react-web-blueprint or nextjs-web-blueprint.
+    Baseline: WCAG 2.2 AA for all supported user journeys. Key areas: native semantics before ARIA, full keyboard operation, intentional focus management after route changes and dialogs, label/error association on forms, live region governance, prefers-reduced-motion, color contrast, and target sizing.
+    Violations table: 6 ERROR — non-semantic clickable elements, missing accessible names, dialogs without focus traps, hidden focus indicators, unchecked reduced-motion on carousels, and unannounced status updates required for task completion.
+targets:
+  - AGENTS.md
+  - specforge
