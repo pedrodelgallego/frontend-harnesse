@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-performance
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend performance: per-page budgets, route-level code splitting, render efficiency, asset optimization, CSS/animation discipline, and hydration payload control."
+  license: MIT
+  keywords: [performance, code-splitting, bundle, rendering, core-web-vitals, lazy-loading, hydration, assets, cls]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify frontend performance requirements. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: define performance budgets per critical page/journey; split code by route and heavy feature boundary; lazy-load non-critical features; virtualize or window unbounded lists; size/compress/format images and reserve dimensions to prevent CLS; limit font variants; prefer transform/opacity for animation; avoid duplicate fetches across server/client boundaries; keep hydration payloads minimal; prefer server rendering for non-interactive content.
+    Violations table: 6 ERROR — large non-critical code in initial bundle, image/font strategy causing layout shift, synchronous main-thread blocking work, unbounded list without pagination or virtualization, layout-affecting animation properties, and post-hydration duplicate fetches.
+targets:
+  - AGENTS.md
+  - specforge
