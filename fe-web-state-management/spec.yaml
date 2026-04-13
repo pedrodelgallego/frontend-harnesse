@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-state-management
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend state management: state classification, single source of truth, computed derivation, minimal global state, versioned persistence, and concurrency safety."
+  license: MIT
+  keywords: [state-management, local-state, global-state, server-state, persistence, derived-state, concurrency, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify state management decisions in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: classify every state as local UI, shared client, server, route, or persisted; keep server state out of generic global stores; define one writable owner per state slice; compute derived state instead of duplicating it; avoid bidirectional sync between independent stores; use global state only for cross-route/feature coordination; version persisted structures and handle schema migration; prevent stale async updates from overwriting current intent; form state stays owned by the form boundary unless explicitly shared.
+    Violations table: 6 ERROR — server state copied into global client state, same source of truth in multiple writable locations, derived state manually synchronized, global state for local concerns, sensitive data persisted without approval, and mutation bypassing ownership boundary.
+targets:
+  - AGENTS.md
+  - specforge
