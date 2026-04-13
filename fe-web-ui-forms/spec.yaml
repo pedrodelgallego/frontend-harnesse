@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-ui-forms
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for UI and forms: complete UI state coverage, client/server validation ownership, submission protection, inline error association, destructive action guards, and input formatting separation."
+  license: MIT
+  keywords: [forms, validation, ui-states, ux, submission, destructive-actions, error-handling, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify UI and form behavior in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: define loading, empty, error, success, and partial-data states for every user-visible surface; keep layout stable during loading; validate before submission when rules are client-available; surface server validation back to fields or form summary; preserve user input on recoverable failures; prevent duplicate submission; expose pending state on submit actions; show field-level errors near the relevant control; require confirmation or undo for materially destructive actions; separate display formatting from submitted value.
+    Violations table: 6 ERROR — form submits without duplicate protection, validation only on failed submit when inline feedback required, loading state causing layout jump, destructive action without confirmation/undo, field error not associated with field, and submit enabled when data is clearly invalid.
+targets:
+  - AGENTS.md
+  - specforge
