@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-data-fetching
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for client data fetching: centralized data access, explicit timeouts, cancellation, caching and revalidation policy, safe retries, pagination strategy, and mutation lifecycle."
+  license: MIT
+  keywords: [data-fetching, caching, mutations, retry, cancellation, pagination, api-consumption, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify data fetching behavior in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: centralize network access in an approved data layer; set explicit timeouts; cancel obsolete requests on navigation; deduplicate in-flight requests; define caching/freshness/invalidation policy per resource; retry only transient failures with bounded backoff and jitter; never retry non-idempotent mutations without explicit backend contract; define pending/success/rollback/failure for every mutation; keep paginated state in URL when shareable; validate boundary assumptions when backend contract is untrusted.
+    Violations table: 7 ERROR — fetch in render path, duplicate requests without deduplication, uncancelled stale requests updating state, unsafe mutation retry, stale overwrite of fresh state, missing timeout, cache without freshness policy.
+targets:
+  - AGENTS.md
+  - specforge
