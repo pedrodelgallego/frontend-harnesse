@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-testing
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend testing: layered test pyramid, behavior-first assertions, network isolation at component layer, independent deterministic test data, and coverage by policy."
+  license: MIT
+  keywords: [testing, test-pyramid, component-testing, e2e, accessibility-testing, coverage, vitest, playwright, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify frontend test strategy. Language and framework agnostic — compose with a framework-specific blueprint.
+    Pyramid: unit (pure logic, mappers, reducers) → component (mocked network, user-visible behavior) → integration (routing, state, forms, data layers) → end-to-end (production-like, critical journeys). Key rules: assert visible behavior not implementation details; avoid brittle selectors; cover unhappy paths; never depend on live network in component tests; generate deterministic test data; keep tests independent; reset state between tests; define coverage thresholds by policy; use automated a11y checks for regression prevention only.
+    Violations table: 7 ERROR — inverted pyramid, E2E tests covering pure logic, component tests hitting live network, implementation-detail assertions, snapshots as primary assertion, shared mutable state between tests, and flaky retry masking nondeterminism.
+targets:
+  - AGENTS.md
+  - specforge
