@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-browser-platform
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for browser platform use: explicit browser support policy, progressive enhancement, storage ownership, cookie justification, offline strategy, and SSR/hydration safety."
+  license: MIT
+  keywords: [browser, progressive-enhancement, storage, cookies, ssr, offline, hydration, feature-detection]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify correct use of browser platform APIs in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Covers: explicit browser/device support declaration, capability detection over user-agent sniffing, centralized wrappers for platform APIs, storage schema and expiry definition, cookie justification, offline strategy classification (online-only vs. offline-capable), connectivity visibility, and SSR hydration safety (no time/locale/random divergence at first render).
+    Violations table: 5 ERROR — user-agent sniffing, browser-only API accessed in SSR path without guard, localStorage used as a durable database, blank screen for unsupported browsers, and JavaScript-required core content without documented reason.
+targets:
+  - AGENTS.md
+  - specforge
