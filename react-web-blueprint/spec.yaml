@@ -1,0 +1,32 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: react-web-blueprint
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for implementing fe-web-* policies in React 19 with TypeScript strict mode: component boundaries, hook discipline, state ownership, error boundaries, data access patterns, and form ownership."
+  license: MIT
+  keywords: [react, typescript, hooks, components, state, blueprint, frontend, react19]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify a web frontend built with React 19 and TypeScript strict mode. It maps the general fe-web-* harness rules to concrete React implementation requirements.
+    Stack: React 19.x, TypeScript strict mode. Key rules: separate presentational from data/orchestration components; keep hooks pure in signature and explicit in ownership; use useEffect only for synchronization with external systems; lift state only to the nearest common owner; implement data access through dedicated hooks, loaders, or framework boundaries; cancel obsolete async work; keep form state owned by the form boundary; use error boundaries for render-time isolation; use transitions for non-urgent updates.
+    Violations table: 6 ERROR — side effects in render, conditional or invalid hook calls, mixed responsibilities without boundary, useEffect for pure derivation, uncontrolled prop-to-state mirroring, and route components importing transport clients directly.
+
+dependencies:
+  - ref: "pedro-delgallego/fe-web-accessibility:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-architecture:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-browser-platform:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-data-fetching:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-observability:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-performance:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-routing-navigation:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-security:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-state-management:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-testing:^0.1.0"
+  - ref: "pedro-delgallego/fe-web-ui-forms:^0.1.0"
+
+targets:
+  - AGENTS.md
+  - specforge
