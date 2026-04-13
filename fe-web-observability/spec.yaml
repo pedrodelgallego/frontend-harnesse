@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-observability
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend observability: error capture, RUM, canonical event naming, structured logging, feature flag telemetry, and backend trace correlation."
+  license: MIT
+  keywords: [observability, telemetry, rum, error-monitoring, analytics, logging, tracing, feature-flags, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify observability in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Covers: capturing unhandled render/async/route failures; canonical event naming scheme; stable context fields (environment, app version, route, correlation ID); bounded-cardinality metric dimensions; real-user performance metrics for critical journeys; backend trace header correlation; structured event contracts for key user journeys; feature flag exposure events with variant and context; structured client logs with noisy-event sampling.
+    Violations table: 6 ERROR — swallowed client errors, telemetry containing secrets or PII, high-cardinality metric dimensions, inconsistent event names across screens, unattributed flag exposures, and discarded backend trace correlation headers.
+targets:
+  - AGENTS.md
+  - specforge
