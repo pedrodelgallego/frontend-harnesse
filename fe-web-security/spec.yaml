@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-security
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for frontend security: no secrets in bundles, token handling per backend auth model, untrusted content sanitization, postMessage validation, and PII minimization in telemetry."
+  license: MIT
+  keywords: [security, xss, tokens, authorization, postmessage, iframe, pii, sanitization, frontend]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify security practices in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: treat all shipped code and config as public; never store server secrets or signing keys client-side; minimize token exposure in JS-accessible storage; never put tokens in URLs; clear credentials on logout; treat frontend authz as UX guidance only — expect server enforcement; sanitize/transform untrusted HTML before rendering; validate postMessage origin and payload; restrict iframe integrations to approved origins; minimize PII in logs, analytics, and crash reports.
+    Violations table: 7 ERROR — secrets in client bundle, access token in insecure storage, unsanitized HTML rendering, frontend-only authorization, trusted user-controlled URLs/HTML/messages, unvalidated cross-origin messages, and sensitive data in telemetry.
+targets:
+  - AGENTS.md
+  - specforge
