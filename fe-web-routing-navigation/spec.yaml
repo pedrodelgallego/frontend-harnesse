@@ -1,0 +1,18 @@
+apiVersion: spechub.io/v2
+kind: Spec
+metadata:
+  name: fe-web-routing-navigation
+  org: pedro-delgallego
+  version: 0.1.0
+  description: "Non-negotiable rules for routing and navigation: stable URLs as source of truth, deep linking, back/forward expectations, route guards, route builders, and error/not-found handling."
+  license: MIT
+  keywords: [routing, navigation, url, deep-linking, route-guards, spa, query-params, breadcrumbs]
+  authors:
+    - Pedro Delgallego
+  context: |
+    Use this spec to implement or verify routing and navigation behavior in web frontends. Language and framework agnostic — compose with a framework-specific blueprint.
+    Key rules: treat URL as source of truth for route identity and shareable state; path segments for identity/hierarchy, query params for bookmarkable view state; support refresh and direct entry for every navigable screen; warn before discarding unsaved changes; resolve auth/authz before revealing protected content; never rely on route hiding as a security control; centralize route builders; provide not-found and route-error states; validate route params at the boundary.
+    Violations table: 6 ERROR — route state only in memory, raw string URL concatenation, secrets/tokens in query params, back/forward breaking user flow or losing unsaved state, protected route flashing before auth resolves, and invalid route params accepted without normalization.
+targets:
+  - AGENTS.md
+  - specforge
